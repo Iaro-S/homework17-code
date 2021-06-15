@@ -24,19 +24,19 @@ public class PersonService {
 
     public List<Person> majorPersons() {
         return persons.stream()
-                .filter(person -> person.getAge() > 18)
+                .filter(person -> person.getAge() >= 18)
                 .collect(toList());
     }
 
     public List<Person> fromCity() {
         return persons.stream()
-                .filter(person -> person.getCity().equals("Oradea"))
+                .filter(person -> person.getCity().equalsIgnoreCase("Oradea"))
                 .collect(toList());
     }
 
     public List<Person> fromCities() {
         return persons.stream()
-                .filter(person -> person.getCity().equals("Oradea") || person.getCity().equals("Cluj"))
+                .filter(person -> person.getCity().equalsIgnoreCase("Oradea") || person.getCity().equalsIgnoreCase("Cluj"))
                 .collect(toList());
     }
 
